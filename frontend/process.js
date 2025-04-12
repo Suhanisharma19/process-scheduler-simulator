@@ -168,7 +168,7 @@ function runScheduler() {
   showOutput(result.processes);
 }
 
-const TIME_UNIT_WIDTH = 40; // Adjust as needed (e.g., 60 or 80 for larger bars)
+const TIME_UNIT_WIDTH = 40; 
 
 function showGanttChart(gantt) {
   const chart = document.getElementById("gantt-chart");
@@ -182,33 +182,25 @@ function showGanttChart(gantt) {
     gantt.forEach(block => {
       if (currentTime >= block.start && currentTime < block.end) {
         const blockId = `gantt-${block.pid}-${block.start}`;
-
-        // If this block hasn't been created yet, create and append it
         if (!barMap[blockId]) {
           const div = document.createElement("div");
           div.classList.add("gantt-block");
           div.setAttribute("id", blockId);
           div.setAttribute("data-time", `${block.start}-${block.end}`);
           div.style.left = `${block.start * TIME_UNIT_WIDTH}px`;
-          div.style.width = `0px`; // Start with width 0, then grow
+          div.style.width = `0px`; 
 
           div.textContent = `${block.pid}`;
           chart.appendChild(div);
-
-          // Save reference to the bar
           barMap[blockId] = {
             element: div,
             elapsed: 0,
             duration: block.end - block.start
           };
         }
-
-        // Grow the block
         const bar = barMap[blockId];
         bar.elapsed++;
         bar.element.style.width = `${bar.elapsed * TIME_UNIT_WIDTH}px`;
-
-        // Tooltip showing remaining time
         const remaining = bar.duration - bar.elapsed;
         bar.element.title = `Remaining Burst: ${remaining >= 0 ? remaining : 0}`;
       }
@@ -216,7 +208,7 @@ function showGanttChart(gantt) {
 
     currentTime++;
     if (currentTime > maxTime) clearInterval(interval);
-  }, 700); // Adjust speed if needed
+  }, 700); 
 }
 
 
