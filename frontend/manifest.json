@@ -1,0 +1,22 @@
+{
+    "name": "Process Scheduling Simulator",
+    "short_name": "CPU Scheduler",
+    "start_url": "process.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#007BFF",
+    "description": "Visualize various CPU Scheduling Algorithms with Gantt charts",
+    "icons": [
+      {
+        "src": "icon-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "icon-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }
+  

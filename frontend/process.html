@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Process Scheduling Simulator</title>
+  <link rel="stylesheet" href="process.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/x-icon" href="frontend/favicon.ico" />
+</head>
+<body>
+  <h1>Process Scheduling Simulator</h1>
+
+  <div class="container">
+    <div class="form-section">
+      <label for="algorithm">Select Algorithm:</label>
+      <select id="algorithm" onchange="handleAlgorithmChange()">
+        <option value="fcfs">First Come First Serve (FCFS)</option>
+        <option value="sjf">Shortest Job First (Non-preemptive)</option>
+        <option value="srtf">Shortest Remaining Time First (Preemptive)</option>
+        <option value="rr">Round Robin</option>
+        <option value="priority">Priority Scheduling (Non-preemptive)</option>
+        <option value="mlfq">Multilevel Feedback Queue 🔁</option>
+        <option value="lottery">🎟️ Lottery Scheduling</option>
+        <option value="suhani">🌟 Suhani's Custom Scheduling</option>
+        <option value="mood">Mood-Based Scheduling 🎭</option>
+      </select>
+
+      <div id="quantum-input" style="display: none; margin-top: 10px;">
+        <label for="quantum">Time Quantum (for RR):</label>
+        <input type="number" id="quantum" min="1" />
+      </div>
+
+      <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+      <button onclick="exportCSV()">📥 Export as CSV</button>
+    </div>
+
+    <table id="process-table">
+      <thead>
+        <tr>
+          <th>PID</th>
+          <th>Arrival Time</th>
+          <th>Burst Time</th>
+          <th class="priority-col">Priority</th>
+          <th class="mood-col" style="display: none;">Mood</th>
+
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="process-body">
+        <!-- Dynamic rows inserted via JavaScript -->
+      </tbody>
+    </table>
+    
+
+    <button onclick="addRow()">Add Process</button>
+    <button onclick="resetTable()">Reset All</button>
+    <button onclick="runScheduler()">Run</button>
+
+    <div class="output-section">
+      <h2>Gantt Chart</h2>
+      <div id="gantt-chart"></div>
+      <div id="gantt-timeline"></div>
+      <h2>Result</h2>
+      <pre id="output"></pre>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="algorithms/fcfs.js"></script>
+  <script src="algorithms/sjf.js"></script>
+  <script src="algorithms/srtf.js"></script>
+  <script src="algorithms/rr.js"></script>
+  <script src="algorithms/mlfq.js"></script>
+  <script src="algorithms/priority.js"></script>
+  <script src="algorithms/lottery.js"></script>
+  <script src="algorithms/suhaniCustom.js"></script>
+  <script src="algorithms/mood.js"></script>
+  <script src="process.js"></script>
+  
+</body>
+</html>

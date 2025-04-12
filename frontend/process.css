@@ -1,0 +1,161 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: auto;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  .priority-col,
+.priority {
+  display: none;
+}
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  td input[type="number"],
+  td input[readonly] {
+    width: 80px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  td button {
+    padding: 6px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  td button:hover {
+    background-color: #c82333;
+  }
+  
+  button {
+    padding: 10px 16px;
+    margin-right: 10px;
+    margin-top: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  select {
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  #gantt-chart {
+    position: relative; /* Important for absolute positioning of children */
+    display: block;
+    margin: 30px auto 10px;
+    min-height: 60px;
+    min-width: 100%; /* Ensure the container stretches if needed */
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    white-space: nowrap; /* Prevents line wrapping of child elements */
+  }
+  
+  /* Each Gantt block (task bar) */
+  .gantt-block {
+    position: absolute;
+    height: 40px;
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+  
+  /* Time label below each block */
+  /* Time label below each block */
+.gantt-block::after {
+  content: attr(data-time);
+  position: absolute;
+  bottom: -30px; /* Increased from -20px to -30px for more gap */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #333;
+}
+
+  #output {
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #444;
+    text-align: center;
+  }
+  body.dark-mode {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+  }
+  
+  body.dark-mode .container {
+    background-color: #2e2e2e;
+    box-shadow: 0 0 10px #444;
+  }
+  
+  body.dark-mode th {
+    background-color: #444;
+  }
+  
+  body.dark-mode td input,
+  body.dark-mode select {
+    background-color: #333;
+    color: white;
+    border-color: #555;
+  }
+  
