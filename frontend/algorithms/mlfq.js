@@ -1,12 +1,10 @@
 function mlfqScheduling(processes) {
-    // Define three queues with different time quantums
     const queues = [
       { quantum: 4, processes: [] },
       { quantum: 8, processes: [] },
-      { quantum: null, processes: [] }, // FCFS for the last queue
+      { quantum: null, processes: [] }, 
     ];
-  
-    // Deep clone of input processes to avoid mutation
+
     const processMap = new Map();
     processes.forEach(p => {
       processMap.set(p.pid, {
@@ -15,7 +13,7 @@ function mlfqScheduling(processes) {
         queueLevel: 0,
         completed: false
       });
-      queues[0].processes.push(p.pid); // initially all processes in Queue 0
+      queues[0].processes.push(p.pid); 
     });
   
     const gantt = [];
@@ -62,20 +60,20 @@ function mlfqScheduling(processes) {
             j--;
   
             if (i + 1 < queues.length) {
-              queues[i + 1].processes.push(proc.pid); // demote to lower queue
+              queues[i + 1].processes.push(proc.pid); 
               proc.queueLevel = i + 1;
             } else {
-              queues[i].processes.push(proc.pid); // stay in same queue if it's the last
+              queues[i].processes.push(proc.pid); 
             }
           }
   
-          break; // once we find a process to execute, break to simulate RR
+          break; 
         }
   
         if (found) break;
       }
   
-      if (!found) currentTime++; // CPU idle
+      if (!found) currentTime++; 
     }
   
     return { gantt, processes: result.sort((a, b) => a.pid.localeCompare(b.pid)) };

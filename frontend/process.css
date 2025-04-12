@@ -90,20 +90,19 @@ body {
   }
   
   #gantt-chart {
-    position: relative; /* Important for absolute positioning of children */
+    position: relative; 
     display: block;
     margin: 30px auto 10px;
     min-height: 60px;
-    min-width: 100%; /* Ensure the container stretches if needed */
+    min-width: 100%; 
     border: 1px solid #ccc;
     padding: 10px;
     background: #f9f9f9;
     border-radius: 8px;
-    overflow-x: auto; /* Enables horizontal scrolling */
-    white-space: nowrap; /* Prevents line wrapping of child elements */
+    overflow-x: auto; 
+    white-space: nowrap; 
   }
-  
-  /* Each Gantt block (task bar) */
+
   .gantt-block {
     position: absolute;
     height: 40px;
@@ -118,13 +117,11 @@ body {
     box-sizing: border-box;
     padding: 0 10px;
   }
-  
-  /* Time label below each block */
-  /* Time label below each block */
+
 .gantt-block::after {
   content: attr(data-time);
   position: absolute;
-  bottom: -30px; /* Increased from -20px to -30px for more gap */
+  bottom: -30px; 
   left: 50%;
   transform: translateX(-50%);
   font-size: 12px;

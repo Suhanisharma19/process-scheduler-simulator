@@ -1,5 +1,4 @@
 function lotteryScheduling(processes) {
-    // Assign default tickets if not provided
     processes.forEach(p => {
       p.tickets = Math.floor(Math.random() * 10) + 1; // Random tickets 1-10
       p.remainingTime = p.burstTime;
@@ -19,7 +18,6 @@ function lotteryScheduling(processes) {
         continue;
       }
   
-      // Create lottery pool
       let pool = [];
       activeProcesses.forEach(p => {
         for (let i = 0; i < p.tickets; i++) {
@@ -31,7 +29,7 @@ function lotteryScheduling(processes) {
       const proc = processes.find(p => p.pid === winnerPid);
   
       const start = currentTime;
-      const execTime = 1; // Run 1 unit of time for simplicity
+      const execTime = 1; 
       proc.remainingTime -= execTime;
       currentTime += execTime;
   
